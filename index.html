@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Daily Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fa-solid fa-calendar-check"></i> Daily Task Manager</h1>
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+      <div class="chart-container">
+        <canvas id="taskChart"></canvas>
+      </div>
+      <div class="task-counts">
+        <p>✅ Completed Tasks: <span id="completedCount">0</span></p>
+        <p>🕒 Pending Tasks: <span id="pendingCount">0</span></p>
+      </div>
+    </div>
+
+    <!-- Task Input -->
+    <div class="task-input">
+      <input type="text" id="taskInput" placeholder="Enter task">
+      <input type="time" id="timePicker">
+      <select id="priorityInput">
+        <option value="High">High Priority</option>
+        <option value="Medium">Medium Priority</option>
+        <option value="Low">Low Priority</option>
+      </select>
+      <select id="timeInput">
+        <option value="morning">Morning</option>
+        <option value="afternoon">Afternoon</option>
+        <option value="evening">Evening</option>
+        <option value="night">Night</option>
+      </select>
+      <button onclick="addTask()"><i class="fa-solid fa-plus"></i></button>
+    </div>
+
+    <!-- Sections -->
+    <div class="section morning">
+      <h2><i class="fa-solid fa-sunrise"></i> Morning</h2>
+      <ul id="morningList"></ul>
+    </div>
+    <div class="section afternoon">
+      <h2><i class="fa-solid fa-sun"></i> Afternoon</h2>
+      <ul id="afternoonList"></ul>
+    </div>
+    <div class="section evening">
+      <h2><i class="fa-solid fa-cloud-sun"></i> Evening</h2>
+      <ul id="eveningList"></ul>
+    </div>
+    <div class="section night">
+      <h2><i class="fa-solid fa-moon"></i> Night</h2>
+      <ul id="nightList"></ul>
+    </div>
+  </div>
+
+  <audio id="alarmSound" src="2.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
